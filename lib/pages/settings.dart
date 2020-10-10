@@ -74,8 +74,17 @@ class _SettingsState extends State<Settings> {
                       SizedBox(
                         width: 10,
                       ),
-                      CircleAvatar(
-                        child: Image.asset('assets/darkBlueTheme.png'),
+                      GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            themeIndex = 1;
+                            chosenTheme = themeIndex;
+                            //Navigator.pop(context, 0);
+                          });
+                        },
+                        child: CircleAvatar(
+                          child: Image.asset('assets/darkBlueTheme.png'),
+                        ),
                       ),
                       SizedBox(
                         width: 10,

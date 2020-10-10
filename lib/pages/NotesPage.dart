@@ -13,15 +13,18 @@ class NotesPage extends StatefulWidget {
 int selectedNotebookIndex = 0;
 int selectedNoteIndex = 0;
 int notebookIndexCount = 0;
+int c1 = 0;
+int c2 = 0;
+int c3 = 0;
 
 
 
 class _NotesPageState extends State<NotesPage> {
 
   List<Notebook> notebookList = [
-    Notebook(name: 'Journal', date: DateTime(2020, 8, 25), amount: 1),
-    Notebook(name: 'Ideas', date: DateTime(2020, 8, 21), amount:  1),
-    Notebook(name: 'Notes', date: DateTime(2020, 8, 19), amount: 1),
+    Notebook(name: 'Notes', date: DateTime(2020, 10, 9), amount: 1),
+    Notebook(name: 'Ideas', date: DateTime(2020, 10, 6), amount:  1),
+    Notebook(name: 'Journal', date: DateTime(2020, 9, 16), amount: 1),
   ];
 
 
@@ -57,6 +60,48 @@ class _NotesPageState extends State<NotesPage> {
         onTap: () {
           setState(() {
             selectedNotebookIndex = index;
+            if(notebook.name == 'Notes') {
+              //print("print");
+              List a = [
+                Note(title: "Buy Groceries", body: "Milk, Eggs, Sugar, Flour", date: DateTime(2020, 10, 9)),
+                Note(title: 'Finish Project', body: 'Talk to Mark about deadline', date: DateTime(2020, 10, 8)),
+                Note(title: 'Buy Monitor', body: '27" Dell and LG on sale', date: DateTime(2020, 9, 26)),
+                Note(title: 'Buy Monitor', body: '27" Dell and LG on sale', date: DateTime(2020, 9, 21)),
+                Note(title: 'Research algos for R3', body: 'Look into Djikstra\'s', date: DateTime(2020, 9, 21)),
+              ];
+              if(c1 == 0) {
+                for (Note n in a) {
+                  notebook.addNote1(n);
+                }
+                c1 = 1;
+              }
+            }
+            else if(notebook.name == 'Ideas') {
+              List a = [
+                Note(title: 'New Features', body: 'Custom reminders and cloud saves', date: DateTime(2020, 10, 6)),
+                Note(title: 'Story Idea', body: 'More backstory on Venli from SA', date: DateTime(2020, 10, 3)),
+                Note(title: 'Website Updates', body: 'Host react apps on portfolio', date: DateTime(2020, 9, 28)),
+              ];
+              if(c2 == 0) {
+                for (Note n in a) {
+                  notebook.addNote1(n);
+                }
+                c2 = 1;
+              }
+            }
+            else if(notebook.name == 'Journal') {
+              List a = [
+                Note(title: "Day 3", body: "Saw a funny bird... I think:", date: DateTime(2020, 9, 16)),
+                Note(title: 'Day 2', body: 'Why am I keeping a journal?', date: DateTime(2020, 9, 15)),
+                Note(title: 'Day 1', body: 'First Journal Entry', date: DateTime(2020, 9, 14)),
+              ];
+              if(c3 == 0) {
+                for (Note n in a) {
+                  notebook.addNote1(n);
+                }
+                c3 = 1;
+              }
+            }
           });
         },
         child: Container(
